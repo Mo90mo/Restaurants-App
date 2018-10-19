@@ -48,7 +48,7 @@ self.addEventListener('activate', function(event) {
 /* Create the answers to the fetch events*/
 self.addEventListener('fetch', function(event) {
     event.respondWith(
-        caches.match(event.request).then(function(response) {
+        caches.match(event.request, {ignoreSearch: true }).then(function(response) {
             /*If the event.request match anything in the cache, return it*/
             if (response) {
                 return response;
